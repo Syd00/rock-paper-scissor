@@ -6,13 +6,29 @@
     <title>Rock Paper Scissor</title>
 </head>
 <script>
-    function getComputerChoice() {
+    function getComputerChoice(value) {
+        console.log(value);
         let compChoices = ["Rock", "Paper", "Scissors"]; 
-        let val = Math.floor(Math.random() * compChoices.length) + 1;
-        console.log(val);
+        let val = Math.floor(Math.random() * compChoices.length);
+        
     }
 </script>
+<style>
+   .container {
+        display: flex;
+        justify-content: space-around;
+        width: 50%;
+        margin: 60px auto;
+        gap: 10px;
+        border: 1px solid black;
+        padding: 10px;
+   } 
+</style>
 <body>
-    
+    <div class="container">
+        <button value="1" onclick="getComputerChoice(value)">Rock</button>
+        <button value="2" onclick="getComputerChoice(value)">Paper</button>
+        <button value="3" onclick="getComputerChoice(value)">Scissors</button>
+    </div>
 </body>
 </html>
