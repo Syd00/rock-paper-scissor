@@ -6,7 +6,11 @@
     <title>Rock Paper Scissor</title>
 </head>
 <script>
-    
+    function getComputerChoice() {
+        let compChoices = ["Rock", "Paper", "Scissors"]; 
+        let val = Math.floor(Math.random() * compChoices.length) + 1;
+        console.log(val);
+    }
 </script>
 <body>
     
