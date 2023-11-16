@@ -6,11 +6,30 @@
     <title>Rock Paper Scissor</title>
 </head>
 <script>
-    function getComputerChoice(value) {
-        console.log(value);
-        let compChoices = ["Rock", "Paper", "Scissors"]; 
-        let val = Math.floor(Math.random() * compChoices.length);
-        
+    const whatsBeatWhat = {
+        Rock: "Scissors",
+        Paper: "Rock",
+        Scissors: "Paper"
+    }
+
+    function getComputerChoice(playerVal) {
+        let choices = Object.keys(whatsBeatWhat);
+        let compVal = Math.floor(Math.random() * choices.length);
+        let compChoice = choices[compVal];
+        console.log(compChoice);
+        let playerChoice = choices[playerVal];
+        console.log(playerChoice);
+
+        result = document.getElementById('result');
+        result.innerHTML = `<p>Computer choice: ${compChoice}</p><p>Player choice: ${playerChoice}</p>`;
+
+        if (compChoice === playerChoice) {
+            result.innerHTML += "<p>Tie</p>";
+        } else if (compChoice === whatsBeatWhat[playerChoice]) {
+            result.innerHTML += "<p>You win</p>";
+        } else {
+            result.innerHTML += "<p>You lose</p>";
+        }
     }
 </script>
 <style>
@@ -26,9 +45,12 @@
 </style>
 <body>
     <div class="container">
-        <button value="1" onclick="getComputerChoice(value)">Rock</button>
-        <button value="2" onclick="getComputerChoice(value)">Paper</button>
-        <button value="3" onclick="getComputerChoice(value)">Scissors</button>
+        <button value="0" onclick="getComputerChoice(value)">Rock</button>
+        <button value="1" onclick="getComputerChoice(value)">Paper</button>
+        <button value="2" onclick="getComputerChoice(value)">Scissors</button>
+    </div>
+    <div id="result">
+        
     </div>
 </body>
 </html>
