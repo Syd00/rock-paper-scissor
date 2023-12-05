@@ -12,6 +12,10 @@
         Scissors: "Paper"
     }
 
+    document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', playRound);
+    })
+
     function getComputerChoice(playerVal) {
         let choices = Object.keys(whatsBeatWhat);
         let compVal = Math.floor(Math.random() * choices.length);
@@ -45,9 +49,9 @@
 </style>
 <body>
     <div class="container">
-        <button value="0" onclick="getComputerChoice(value)">Rock</button>
-        <button value="1" onclick="getComputerChoice(value)">Paper</button>
-        <button value="2" onclick="getComputerChoice(value)">Scissors</button>
+        <button value="0" >Rock</button>
+        <button value="1" >Paper</button>
+        <button value="2" >Scissors</button>
     </div>
     <div id="result">
         
