@@ -44,14 +44,10 @@
     
         function playRound(event) {
             let playerSelection = event.target.value;
-            console.log(event.target);
             let choices = Object.keys(whatsBeatWhat);
             let compVal = Math.floor(Math.random() * choices.length);
             let compSelection = choices[compVal];
-            console.log(compSelection);
-            //let playerChoice = choices[playerVal];
-    
-            //result = document.getElementById('result');
+
             result = document.querySelector('div#result');
             result.innerHTML = `<p>Computer choice: ${compSelection}</p><p>Player choice: ${playerSelection}</p>`;
     
