@@ -4,57 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
+    <style>
+        .container {
+             display: flex;
+             justify-content: space-around;
+             width: 50%;
+             margin: 60px auto;
+             gap: 10px;
+             border: 1px solid black;
+             padding: 10px;
+        } 
+     </style>
+    <script>
+
+    </script>
 </head>
-<script>
-    const whatsBeatWhat = {
-        Rock: "Scissors",
-        Paper: "Rock",
-        Scissors: "Paper"
-    }
 
-    document.querySelectorAll('button').forEach(btn => {
-        btn.addEventListener('click', playRound);
-    })
 
-    function getComputerChoice(playerVal) {
-        let choices = Object.keys(whatsBeatWhat);
-        let compVal = Math.floor(Math.random() * choices.length);
-        let compChoice = choices[compVal];
-        console.log(compChoice);
-        let playerChoice = choices[playerVal];
-        console.log(playerChoice);
-
-        result = document.getElementById('result');
-        result.innerHTML = `<p>Computer choice: ${compChoice}</p><p>Player choice: ${playerChoice}</p>`;
-
-        if (compChoice === playerChoice) {
-            result.innerHTML += "<p>Tie</p>";
-        } else if (compChoice === whatsBeatWhat[playerChoice]) {
-            result.innerHTML += "<p>You win</p>";
-        } else {
-            result.innerHTML += "<p>You lose</p>";
-        }
-    }
-</script>
-<style>
-   .container {
-        display: flex;
-        justify-content: space-around;
-        width: 50%;
-        margin: 60px auto;
-        gap: 10px;
-        border: 1px solid black;
-        padding: 10px;
-   } 
-</style>
 <body>
     <div class="container">
-        <button value="0" >Rock</button>
-        <button value="1" >Paper</button>
-        <button value="2" >Scissors</button>
+        <button value="Rock" >Rock</button>
+        <button value="Paper" >Paper</button>
+        <button value="Scissors" >Scissors</button>
     </div>
     <div id="result">
         
     </div>
+
+    <script>
+        const whatsBeatWhat = {
+            Rock: "Scissors",
+            Paper: "Rock",
+            Scissors: "Paper"
+        }
+
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', playRound);
+        })
+    
+        function playRound(event) {
+            let playerSelection = event.target.value;
+            console.log(event.target);
+            let choices = Object.keys(whatsBeatWhat);
+            let compVal = Math.floor(Math.random() * choices.length);
+            let compSelection = choices[compVal];
+            console.log(compSelection);
+            //let playerChoice = choices[playerVal];
+    
+            //result = document.getElementById('result');
+            result = document.querySelector('div#result');
+            result.innerHTML = `<p>Computer choice: ${compSelection}</p><p>Player choice: ${playerSelection}</p>`;
+    
+            if (compSelection === playerSelection) {
+                result.innerHTML += "<p>Tie</p>";
+            } else if (compSelection === whatsBeatWhat[playerSelection]) {
+                result.innerHTML += "<p>You win</p>";
+            } else {
+                result.innerHTML += "<p>You lose</p>";
+            }
+        }
+    </script>
 </body>
 </html>
